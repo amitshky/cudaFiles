@@ -3,7 +3,7 @@ Repo for CUDA files.
 This repo has only been built and tested in Windows.
 
 ## Prerequisites
-* [cmake](https://cmake.org/download/)
+* [CMake](https://cmake.org/download/)
 * [CUDA runtime library](https://developer.nvidia.com/cuda-downloads) (This repo was built and tested on v11.6)
 
 ## Configuration

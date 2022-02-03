@@ -5,6 +5,8 @@ enable_language(CUDA)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CUDA_ARCHITECTURES 60)
 
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_MODE") # defining macro for debug mode
+
 add_subdirectory(src)
 add_subdirectory(externals)
 

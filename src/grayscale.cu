@@ -5,6 +5,8 @@
 #include "stb_image/stb_image.h"
 #include "stb_image/stb_image_write.h"
 
+#include "utils/utils.cuh"
+
 
 __global__ void Grayscale(uint8_t* imgData, const int width, const int height, const int channels)
 {
@@ -51,9 +53,9 @@ int main()
 
 	// allocate device memory
 	uint8_t* d_ImgData = nullptr;
-	cudaMalloc(&d_ImgData, imgSize * sizeof(uint8_t));
+	cudaCheckError(cudaMalloc(&d_ImgData, imgSize * sizeof(uint8_t)));
 	// copy image data from host memory to device memory
-	cudaMemcpy(d_ImgData, imgData, imgSize * sizeof(uint8_t), cudaMemcpyHostToDevice);
+	cudaCheckError(cudaMemcpy(d_ImgData, imgData, imgSize * sizeof(uint8_t), cudaMemcpyHostToDevice));
 
 	// assign grid size and block size
 	const dim3 threads(tx, ty); // block size
@@ -65,7 +67,8 @@ int main()
 	printf("Converting image to grayscale...\n");
 	Grayscale<<<blocks, threads>>>(d_ImgData, width, height, channels);
 	// copy image data from device memory to host memory
-	cudaMemcpy(imgData, d_ImgData, imgSize * sizeof(uint8_t), cudaMemcpyDeviceToHost);
+	cudaCheckError(cudaMemcpy(imgData, d_ImgData, imgSize * sizeof(uint8_t), cudaMemcpyDeviceToHost));
+	cudaCheckError(cudaGetLastError());
 
 	// write image
 	stbi_flip_vertically_on_write(true);
@@ -73,7 +76,7 @@ int main()
 	printf("Image exported to %s.\n", outPath);
 
 	// free memory
-	cudaFree(d_ImgData);
+	cudaCheckError(cudaFree(d_ImgData));
 	stbi_image_free(imgData);
 	// assign null
 	d_ImgData = nullptr;
