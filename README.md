@@ -1,10 +1,16 @@
 # cudaFiles
 Repo for CUDA files.
-This repo has only been built and tested in Windows.
+This repo has been built and tested in Windows, in the following configuration:
+
+* **CMake:** v3.22
+* **Device Name:** NVIDIA GeForce GTX 1050
+* **Compute Capability:** 6.1
+* **CUDA Architecture:** 60 (compute_60, sm_60)
+* **CUDA:** v11.6
 
 ## Prerequisites
 * [CMake](https://cmake.org/download/)
-* [CUDA runtime library](https://developer.nvidia.com/cuda-downloads) (This repo was built and tested on v11.6)
+* [CUDA runtime library](https://developer.nvidia.com/cuda-downloads) 
 
 ## Configuration
 Configure cmake build files.\
@@ -36,9 +42,17 @@ Some screenshots of the outputs of the programs.
 
 <img src="img/image.png" width=192>-->
 
+* Device query output
+
+<img src="img/deviceQuery.png" width=450>
+
 * Grayscale
 
 <img src="img/grayscale.png" width=192>
+
+* Gradient image
+
+<img src="img/gradientImg.png" width=450>
 
 ## Resources
 * [CUDA C++ Programming Guide](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html)
