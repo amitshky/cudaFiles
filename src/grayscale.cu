@@ -66,9 +66,9 @@ int main()
 	// call cuda kernel
 	printf("Converting image to grayscale...\n");
 	Grayscale<<<blocks, threads>>>(d_ImgData, width, height, channels);
+	cudaCheckError(cudaGetLastError());
 	// copy image data from device memory to host memory
 	cudaCheckError(cudaMemcpy(imgData, d_ImgData, imgSize * sizeof(uint8_t), cudaMemcpyDeviceToHost));
-	cudaCheckError(cudaGetLastError());
 
 	// write image
 	stbi_flip_vertically_on_write(true);
