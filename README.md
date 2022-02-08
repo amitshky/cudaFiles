@@ -36,7 +36,7 @@ Build and run in Release mode.
 ```
 
 ## Output
-Some screenshots of the outputs of the programs.
+Some screenshots of outputs of some programs.
 
 <!--* write image caption
 
@@ -56,7 +56,7 @@ Some screenshots of the outputs of the programs.
 
 * Shared memory `__syncthreads()` visualization 
 
-without `__syncthreads()`                                   | with `__syncthreads()`
+without `__syncthreads()`                         | with `__syncthreads()`
 :-:                                               |:-:
 <img src="img/sharedMemViz_NoSync.png" width=250> | <img src="img/sharedMemViz_Sync.png" width=250>
 
