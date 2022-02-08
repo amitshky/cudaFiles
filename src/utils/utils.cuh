@@ -14,8 +14,8 @@ inline void CheckCuda(cudaError_t error, const char* func, const char* file, con
 {
 	if (error)
 	{
-		printf("CUDA::ERROR::%d in function: `%s` file: `%s` on line: %d",
-			error, func, file, line);
+		printf("CUDA::ERROR::%d in function: `%s` file: `%s` on line: %d\nERROR: \"%s\"\n",
+			error, func, file, line, cudaGetErrorString(error));
 		std::exit(-1);
 	}
 }
