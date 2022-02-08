@@ -54,6 +54,12 @@ Some screenshots of the outputs of the programs.
 
 <img src="img/gradientImg.png" width=450>
 
+* Shared memory `__syncthreads()` visualization 
+
+without `__syncthreads()`                                   | with `__syncthreads()`
+:-:                                               |:-:
+<img src="img/sharedMemViz_NoSync.png" width=250> | <img src="img/sharedMemViz_Sync.png" width=250>
+
 ## Resources
 * [CUDA C++ Programming Guide](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html)
 * [NVCC commands manual](https://helpmanual.io/help/nvcc/)
