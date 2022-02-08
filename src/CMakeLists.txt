@@ -1,4 +1,4 @@
 add_executable(
 	${PROJECT_NAME}
-	grayscale.cu
+	sharedMemory/1_SharedMem_DotProduct.cu
 )
