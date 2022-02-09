@@ -4,6 +4,10 @@
  * 2. shared memory resides in a block
  * 3. lifetime of a block
  * 4. thread synchronization is required: __syncthreads() // synchronizes all the threads in a block
+ * 
+ * shared memory can also be initialized dynamically
+ * extern __shared__ int mem[];
+ * Kernel<<<blocksPerGrid, threadsPerBlock, dynamicSharedMemSize>>>()
  */
 
 #include <cstdio>
